@@ -45,22 +45,22 @@ Breast cancer is the most frequently diagnosed cancer among women. Understanding
 
 ---
 
-## Models Compared
+## Initail Models Compared
 
-| Model               | Handling Strategy        |
-| ------------------- | ------------------------ |
-| Logistic Regression | class\_weight            |
-| SVM                 | class\_weight            |
-| Random Forest       | class\_weight + tuning   |
-| Extra Trees         | class\_weight            |
-| Decision Tree       | class\_weight            |
-| Bagging             | base estimator weighted  |
-| AdaBoost            | base estimator weighted  |
-| Gradient Boosting   | sample\_weight           |
-| XGBoost             | sample\_weight + tuning  |
-| Stacking Ensemble   | Meta: LogisticRegression |
-| MLP Classifier      | Grid search tuned        |
-| Keras DNN           | Keras Tuner optimized    |
+| Model               |
+| ------------------- |
+| Logistic Regression |
+| SVM                 |
+| Random Forest       |
+| Extra Trees         |
+| Decision Tree       |
+| Bagging             |
+| AdaBoost            |
+| Gradient Boosting   |
+| XGBoost             |
+| Stacking Ensemble   |
+| MLP Classifier      |
+| Keras DNN           |
 
 ---
 
@@ -84,7 +84,7 @@ Final Model: **Random Forest with threshold tuning**
 
 * **Most important features**:
 
-  * Survival Months, Age, Regional Node Positive, Tumor Size
+* Survival Months, Age, Regional Node Positive, Tumor Size
 * **ER/PR-negative status**, **Grade IV**, and **Stage IIIC/IV** strongly correlate with higher mortality
 * **Threshold tuning** greatly improved recall and balanced F1 score
 
@@ -109,3 +109,17 @@ Final Model: **Random Forest with threshold tuning**
 * XGBoost
 * Keras & TensorFlow
 * Keras Tuner
+
+## Conclusion 
+
+This project demonstrates how clinical data can be used effectively to predict patient outcomes using advanced machine learning and deep learning models. Through careful data preprocessing, statistical validation, and model tuning, we achieved a recall of 97.8% with Random Forest, making it highly suitable for medical applications where minimizing false negatives is critical.
+
+**Key takeaways**:
+
+Survival analysis must account for imbalanced classes and threshold optimization.
+
+Hormone receptor status, tumor grade, stage, and size significantly impact prognosis.
+
+Ensemble methods like Random Forest and Gradient Boosting outperform simpler classifiers and are robust to overfitting when tuned properly.
+
+This pipeline can serve as a framework for other clinical classification tasks and highlights the practical use of machine learning in real-world healthcare scenarios.
