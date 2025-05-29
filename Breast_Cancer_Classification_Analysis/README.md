@@ -110,16 +110,8 @@ Final Model: **Random Forest with threshold tuning**
 * Keras & TensorFlow
 * Keras Tuner
 
+___
+
 ## Conclusion 
 
 This project demonstrates how clinical data can be used effectively to predict patient outcomes using advanced machine learning and deep learning models. Through careful data preprocessing, statistical validation, and model tuning, we achieved a recall of 97.8% with Random Forest, making it highly suitable for medical applications where minimizing false negatives is critical.
-
-**Key takeaways**:
-
-Survival analysis must account for imbalanced classes and threshold optimization.
-
-Hormone receptor status, tumor grade, stage, and size significantly impact prognosis.
-
-Ensemble methods like Random Forest and Gradient Boosting outperform simpler classifiers and are robust to overfitting when tuned properly.
-
-This pipeline can serve as a framework for other clinical classification tasks and highlights the practical use of machine learning in real-world healthcare scenarios.
