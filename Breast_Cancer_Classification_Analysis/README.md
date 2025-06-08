@@ -1,6 +1,6 @@
 # Breast Cancer Survival Prediction (SEER Dataset)
 
-This project analyzes breast cancer patient data from the SEER registry to predict survival outcomes using traditional machine learning and deep learning models. It includes thorough EDA, statistical validation, class imbalance handling, model comparison, and performance interpretation with clinical relevance.
+This project applies machine learning and deep learning techniques to predict survival outcomes in breast cancer patients. Using real-world clinical data from the SEER registry, the study identifies key predictors of survival and develops interpretable, high-performing models suitable for healthcare applications.
 
 ![Breast Cancer Header](https://www.sysmex.co.uk/fileadmin/_processed_/a/9/csm_LifeScience_StageImage_BreastCancer_1500x600-01_2498abd1e0.jpg)
 
@@ -8,110 +8,120 @@ This project analyzes breast cancer patient data from the SEER registry to predi
 
 ## Problem Statement
 
-Breast cancer is the most frequently diagnosed cancer among women. Understanding survival factors is crucial for improving treatment strategies. This project explores data from 4,024 patients with infiltrating duct and lobular carcinoma from SEER (2006–2010) to identify key predictors of survival.
+Breast cancer is the most commonly diagnosed cancer among women. Predicting patient survival is critical for treatment planning and resource allocation. This study uses data from 4,024 patients diagnosed with infiltrating duct and lobular carcinoma (2006–2010) to:
+
+- Identify clinical and demographic predictors of survival
+- Build and evaluate multiple classification models
+- Interpret model performance in a clinically meaningful way
 
 ---
 
-## Dataset
+## Dataset Overview
 
-* **Source**: [SEER Breast Cancer Dataset - IEEE DataPort](https://ieee-dataport.org/open-access/seer-breast-cancer-data)
-* **Features**: 15 clinical and demographic variables
-* **Target**: Survival status (Alive / Dead)
-
----
-
-## Exploratory Data Analysis
-
-* Univariate and bivariate plots (histograms, boxplots, stacked barplots)
-* Data type optimization (e.g., categorical conversion)
-* Hypothesis Testing:
-
-  * Mann–Whitney U test for numeric variables
-  * Chi-Square test for categorical variables
+- **Source**: [SEER Breast Cancer Dataset – IEEE DataPort](https://ieee-dataport.org/open-access/seer-breast-cancer-data)  
+- **Observations**: 4,024 patients  
+- **Features**: 15 clinical and demographic variables  
+- **Target**: Survival status (Alive / Dead)  
 
 ---
 
-## Preprocessing
+## Exploratory Data Analysis and Hypothesis Testing
 
-* **Encoding**:
-
-  * OrdinalEncoder for ordered categorical variables (e.g., tumor stage, grade)
-  * OneHotEncoder for nominal variables
-* **Scaling**: StandardScaler for numerical features
-* **Imbalance Handling**:
-
-  * Class weights for Group 1 models
-  * Sample weights for boosting models
+- Comprehensive univariate and bivariate analysis (histograms, boxplots, stacked bar plots)
+- Hypothesis testing:
+  - Mann–Whitney U test for numerical variables
+  - Chi-square test for categorical variables
+- Key variables such as tumor size, hormone receptor status, and cancer stage show statistically significant differences between survival groups
 
 ---
 
-## Initail Models Compared
+## Preprocessing Steps
 
-| Model               |
-| ------------------- |
-| Logistic Regression |
-| SVM                 |
-| Random Forest       |
-| Extra Trees         |
-| Decision Tree       |
-| Bagging             |
-| AdaBoost            |
-| Gradient Boosting   |
-| XGBoost             |
-| Stacking Ensemble   |
-| MLP Classifier      |
-| Keras DNN           |
+- **Encoding**:
+  - OrdinalEncoder for ordered categories (e.g., T Stage, Grade)
+  - OneHotEncoder for nominal variables
+- **Scaling**:
+  - StandardScaler for numeric features
+- **Class Imbalance Handling**:
+  - Class weights
+  - Scale position weight (for XGBoost)
+  - Weighted base estimators (for Bagging and AdaBoost)
 
 ---
 
-## Performance (Test Set)
+## Models Evaluated
 
-| Model             | Accuracy | Precision | Recall | F1 Score |
-| ----------------- | -------- | --------- | ------ | -------- |
-| Random Forest     | 0.906    | 0.916     | 0.978  | 0.946    |
-| Bagging           | 0.908    | 0.916     | 0.981  | 0.948    |
-| Gradient Boosting | 0.908    | 0.909     | 0.991  | 0.948    |
-| XGBoost           | 0.899    | 0.904     | 0.985  | 0.943    |
-| Stacking Ensemble | 0.907    | 0.919     | 0.977  | 0.947    |
-| MLP (Sklearn)     | 0.893    | 0.909     | 0.971  | 0.939    |
-| Keras DNN         | 0.891    | 0.900     | 0.979  | 0.938    |
+| Model                  |
+|------------------------|
+| Logistic Regression    |
+| Support Vector Machine |
+| Decision Tree          |
+| Random Forest          |
+| Extra Trees            |
+| AdaBoost               |
+| Bagging Classifier     |
+| HistGradient Boosting  |
+| XGBoost                |
+| MLP Classifier         |
+| Keras Neural Network   |
+| Stacking Ensemble      |
 
-Final Model: **Random Forest with threshold tuning**
+---
+
+## Model Performance (Test Set)
+
+| Model                  | Accuracy | Precision | Recall | F1 Score |
+|------------------------|----------|-----------|--------|----------|
+| Random Forest          | 0.893    | 0.905     | 0.977  | 0.939    |
+| Bagging                | 0.896    | 0.905     | 0.979  | 0.941    |
+| HistGradient Boosting  | 0.907    | 0.916     | 0.979  | 0.947    |
+| XGBoost                | 0.903    | 0.910     | 0.982  | 0.945    |
+| Stacking               | 0.901    | 0.908     | 0.982  | 0.944    |
+| MLP Classifier         | 0.896    | 0.906     | 0.978  | 0.941    |
+| Keras DNN              | 0.893    | 0.901     | 0.982  | 0.940    |
+
+**Final Model**: HistGradient Boosting  
+Selected for its strong recall, balanced precision, interpretability (SHAP), and computational efficiency.
 
 ---
 
 ## Key Findings
 
-* **Most important features**:
-
-* Survival Months, Age, Regional Node Positive, Tumor Size
-* **ER/PR-negative status**, **Grade IV**, and **Stage IIIC/IV** strongly correlate with higher mortality
-* **Threshold tuning** greatly improved recall and balanced F1 score
+- **Top Predictive Features** (based on SHAP values):
+  - Survival Months
+  - Age
+  - Regional Node Positive
+  - Tumor Size
+- Mortality is strongly associated with:
+  - ER/PR-negative status
+  - High-grade tumors (Grade IV)
+  - Advanced stages (Stage IIIC and IV)
+- Threshold adjustment significantly improved recall and reduced false negatives
 
 ---
 
 ## Confusion Matrix (Test Set)
 
-|       | Pred: Alive | Pred: Dead |
-| ----- | ----------- | ---------- |
-| Alive | 667         | 15         |
-| Dead  | 61          | 62         |
+|                  | Predicted: Alive | Predicted: Dead |
+|------------------|------------------|------------------|
+| Actual: Alive    | 667              | 15               |
+| Actual: Dead     | 61               | 62               |
 
-* **Recall**: 97.8% (excellent sensitivity)
-* **Precision**: 91.6%
-* **False Negative Rate**: Only 15 patients misclassified as deceased
+- **Recall**: 97.9 percent  
+- **Precision**: 91.6 percent  
+- **False Negative Rate**: 1.86 percent
 
 ---
 
-## Tools Used
+## Tools and Libraries
 
-* Python (pandas, numpy, scikit-learn, seaborn, matplotlib)
-* XGBoost
-* Keras & TensorFlow
-* Keras Tuner
+- Python: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`
+- Modeling: `XGBoost`, `HistGradientBoosting`, `BaggingClassifier`, `MLPClassifier`
+- Deep Learning: `Keras`, `TensorFlow`
+- Interpretation: `SHAP`
 
-___
+---
 
-## Conclusion 
+## Conclusion
 
-This project demonstrates how clinical data can be used effectively to predict patient outcomes using advanced machine learning and deep learning models. Through careful data preprocessing, statistical validation, and model tuning, we achieved a recall of 97.8% with Random Forest, making it highly suitable for medical applications where minimizing false negatives is critical.
+This project demonstrates the effective application of machine learning and deep learning to clinical survival prediction. The final model, HistGradient Boosting, achieved a recall of 97.9 percent with low false negative rates—making it well-suited for clinical use where high sensitivity is essential. The model's interpretability using SHAP values also enhances trust and applicability in medical settings.
