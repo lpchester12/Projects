@@ -1,6 +1,6 @@
 # Breast Cancer Survival Prediction (SEER Dataset)
 
-This project applies machine learning and deep learning techniques to predict survival outcomes in breast cancer patients. Using real-world clinical data from the SEER registry, the study identifies key predictors of survival and develops interpretable, high-performing models suitable for healthcare applications.
+This project applies machine learning and deep learning techniques to predict survival outcomes in breast cancer patients. Using real-world clinical data from the SEER registry, the study identifies key predictors of survival and develops interpretable, high-performing models suitable for healthcare decision-making.
 
 ![Breast Cancer Header](https://www.sysmex.co.uk/fileadmin/_processed_/a/9/csm_LifeScience_StageImage_BreastCancer_1500x600-01_2498abd1e0.jpg)
 
@@ -12,7 +12,7 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 
 - Identify clinical and demographic predictors of survival
 - Build and evaluate multiple classification models
-- Interpret model performance in a clinically meaningful way
+- Interpret model performances to select the best model
 
 ---
 
