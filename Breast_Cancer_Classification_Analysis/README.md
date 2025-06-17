@@ -20,7 +20,7 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 
 - **Source**: [SEER Breast Cancer Dataset – IEEE DataPort](https://ieee-dataport.org/open-access/seer-breast-cancer-data)  
 - **Observations**: 4,024 patients  
-- **Features**: 15 clinical and demographic variables  
+- **Features**: 15 clinical and demographic variables (excluding Unnamed: 3)
 - **Target**: Survival status (Alive / Dead)  
 
 ---
@@ -31,21 +31,21 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 - Hypothesis testing:
   - Mann–Whitney U test for numerical variables
   - Chi-square test for categorical variables
-- Key variables such as tumor size, hormone receptor status, and cancer stage show statistically significant differences between survival groups
+- All the variables except for Regional Node Examined show statistically significant differences (p < 0.05) between survival/dead groups
 
 ---
 
 ## Preprocessing Steps
 
 - **Encoding**:
-  - OrdinalEncoder for ordered categories (e.g., T Stage, Grade)
+  - OrdinalEncoder for ordered categories (T Stage, N Stage, 6th Stage, Grade)
   - OneHotEncoder for nominal variables
 - **Scaling**:
   - StandardScaler for numeric features
 - **Class Imbalance Handling**:
   - Class weights
-  - Scale position weight (for XGBoost)
   - Weighted base estimators (for Bagging and AdaBoost)
+  - Scale position weight (for XGBoost)
 
 ---
 
@@ -62,9 +62,17 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 | Bagging Classifier     |
 | HistGradient Boosting  |
 | XGBoost                |
+| Stacking Classifier    |
 | MLP Classifier         |
 | Keras Neural Network   |
-| Stacking Ensemble      |
+
+---
+
+## Model Optimization Techniques
+- Cross-validation (Stratified 5-Fold)
+- Hyperparameter tuning using RandomizedSearchCV and KerasTuner
+- Threshold tuning using Precision-Recall
+- Feature selection
 
 ---
 
@@ -75,10 +83,12 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 | Random Forest          | 0.893    | 0.905     | 0.977  | 0.939    |
 | Bagging                | 0.896    | 0.905     | 0.979  | 0.941    |
 | HistGradient Boosting  | 0.907    | 0.916     | 0.979  | 0.947    |
-| XGBoost                | 0.903    | 0.910     | 0.982  | 0.945    |
-| Stacking               | 0.901    | 0.908     | 0.982  | 0.944    |
+| XGBoost                | 0.903    | 0.911     | 0.981  | 0.945    |
+| Stacking               | 0.892    | 0.908     | 0.971  | 0.938    |
 | MLP Classifier         | 0.896    | 0.906     | 0.978  | 0.941    |
-| Keras DNN              | 0.893    | 0.901     | 0.982  | 0.940    |
+| Keras                  | 0.899    | 0.911     | 0.977  | 0.943    |
+
+---
 
 **Final Model**: HistGradient Boosting  
 Selected for its strong recall, balanced precision, interpretability (SHAP), and computational efficiency.
@@ -91,37 +101,35 @@ Selected for its strong recall, balanced precision, interpretability (SHAP), and
   - Survival Months
   - Age
   - Regional Node Positive
-  - Tumor Size
-- Mortality is strongly associated with:
-  - ER/PR-negative status
-  - High-grade tumors (Grade IV)
-  - Advanced stages (Stage IIIC and IV)
-- Threshold adjustment significantly improved recall and reduced false negatives
+  - Grade
 
 ---
 
 ## Confusion Matrix (Test Set)
 
-|                  | Predicted: Alive | Predicted: Dead |
-|------------------|------------------|------------------|
-| Actual: Alive    | 667              | 15               |
-| Actual: Dead     | 61               | 62               |
+|                  | Predicted: Dead | Predicted: Alive |
+|------------------|------------------|-----------------|
+| Actual: Dead     | 62 (7.70%)        | 61 (7.58%)     |
+| Actual: Alive    | 15 (1.86%)        | 667 (82.86%)   |
 
 - **Recall**: 97.9 percent  
-- **Precision**: 91.6 percent  
-- **False Negative Rate**: 1.86 percent
+- **Precision**: 91.6 percent
+- **True Positive Rate**: 82.86 percent (667/805)
+- **False Negative Rate**: 1.86 percent (15/805)
+- **Precision-Recall AUC**: 96.97 percent
+  
 
 ---
 
 ## Tools and Libraries
 
-- Python: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`
-- Modeling: `XGBoost`, `HistGradientBoosting`, `BaggingClassifier`, `MLPClassifier`
-- Deep Learning: `Keras`, `TensorFlow`
-- Interpretation: `SHAP`
+- Python: pandas, numpy, scikit-learn, matplotlib, seaborn
+- Modeling: XGBoost, HistGradientBoosting, BaggingClassifier, MLPClassifier
+- Deep Learning: Keras, TensorFlow
+- Interpretation: SHAP
 
 ---
 
 ## Conclusion
 
-This project demonstrates the effective application of machine learning and deep learning to clinical survival prediction. The final model, HistGradient Boosting, achieved a recall of 97.9 percent with low false negative rates—making it well-suited for clinical use where high sensitivity is essential. The model's interpretability using SHAP values also enhances trust and applicability in medical settings.
+This project demonstrates the effective application of machine learning and deep learning to clinical survival prediction. The final model, HistGradient Boosting, showed a 97.9 percent recall with low false negative rates (1.86 percent), making it well-suited for clinical use where high sensitivity is essential. This model could assist clinicians in early intervention strategies with prioritizing the resources.
