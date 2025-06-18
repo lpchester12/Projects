@@ -44,7 +44,7 @@ guide public health and policy decisions, especially in developing countries.
 ## Model Building
    - Multiple linear regression using statsmodels
    - Feature elimination based on VIF and p-values
-   - Assumption testing:
+   - Assumption testing (all satisfied):
      - Linearity and independence (residuals vs. fitted)
      - Multicollinearity (VIF)
      - Normality (QQ plot, Shapiro-Wilk)
@@ -64,6 +64,8 @@ guide public health and policy decisions, especially in developing countries.
 | Training Set  | 0.84964   | 0.84846            | 0.05128 | 0.03929 | 0.93005 |
 | Test Set      | 0.87241   | 0.87005            | 0.04759 | 0.03625 | 0.85934 |
 
+- Final model explains approximately 85% of the variance in life expectancy (R-squared = 0.85)
+
 ---
 
 ## Tools and Libraries
@@ -76,17 +78,9 @@ guide public health and policy decisions, especially in developing countries.
 
 ---
 
-## Results
-
-- Final model explains approximately 85% of the variance in life expectancy (R-squared = 0.85)
-- Model generalizes well to unseen data with low test RMSE and MAE
-- All linear regression assumptions are reasonably satisfied
-
----
-
-## Key Findings and insgiths
+## Conclusions & Insights
 
 - HIV/AIDS prevalence has the strongest negative impact on life expectancy.
 - Higher income composition, schooling, GDP, and vaccination rates are strongly associated with increased life expectancy.
-- Developing countries tend to have lower life expectancy, even after accounting for other variables.
-- Public health investments and educational attainment are critical levers for improving population health.
+- Public health investments and educational attainment are criticalc for improving population health.
+- Improving these areas, especially in developing countries, can improve general public health.
