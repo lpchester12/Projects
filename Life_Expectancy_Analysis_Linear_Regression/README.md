@@ -41,7 +41,7 @@ guide public health and policy decisions, especially in developing countries.
 
 ---
 
-## Model Building**
+## Model Building
    - Multiple linear regression using statsmodels
    - Feature elimination based on VIF and p-values
    - Assumption testing:
