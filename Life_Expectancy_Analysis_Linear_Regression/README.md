@@ -51,7 +51,7 @@ guide public health and policy decisions, especially in developing countries.
      - Homoscedasticity (Goldfeld-Quandt test)
 ---
 
-## Model Evaluation**
+## Model Evaluation
    - Train-test split (70:30)
    - Performance metrics: RMSE, MAE, R-squared, Adjusted R-squared, MAPE
 
