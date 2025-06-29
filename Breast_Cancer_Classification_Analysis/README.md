@@ -80,18 +80,18 @@ Breast cancer is the most commonly diagnosed cancer among women. Predicting pati
 
 | Model                  | Accuracy | Precision | Recall | F1 Score |
 |------------------------|----------|-----------|--------|----------|
-| Random Forest          | 0.893    | 0.905     | 0.977  | 0.939    |
-| Bagging                | 0.896    | 0.905     | 0.979  | 0.941    |
-| HistGradient Boosting  | 0.907    | 0.916     | 0.979  | 0.947    |
-| XGBoost                | 0.903    | 0.911     | 0.981  | 0.945    |
-| Stacking               | 0.892    | 0.908     | 0.971  | 0.938    |
-| MLP Classifier         | 0.896    | 0.906     | 0.978  | 0.941    |
-| Keras                  | 0.899    | 0.911     | 0.977  | 0.943    |
+| Random Forest          | 0.896    | 0.915     | 0.966  | 0.940    |
+| Bagging                | 0.893    | 0.922     | 0.955  | 0.948    |
+| HistGradient Boosting  | 0.908    | 0.910     | 0.990  | 0.947    |
+| XGBoost                | 0.896    | 0.913     | 0.969  | 0.940    |
+| Stacking               | 0.897    | 0.903     | 0.984  | 0.942    |
+| MLP Classifier         | 0.893    | 0.903     | 0.979  | 0.940    |
+| Keras                  | 0.896    | 0.915     | 0.966  | 0.940    |
 
 ---
 
 **Final Model**: HistGradient Boosting  
-Selected for its strong recall, balanced precision, interpretability (SHAP), and computational efficiency.
+Selected for its highest recall, balanced precision, interpretability (SHAP), and computational efficiency.
 
 ---
 
@@ -99,9 +99,12 @@ Selected for its strong recall, balanced precision, interpretability (SHAP), and
 
 - **Top Predictive Features** (based on SHAP values):
   - Survival Months
-  - Age
   - Regional Node Positive
+  - Age
+  - Regional Node Examined
+  - Tumor Size
   - Grade
+  - 6th Stage
 
 ---
 
@@ -109,27 +112,25 @@ Selected for its strong recall, balanced precision, interpretability (SHAP), and
 
 |                  | Predicted: Dead | Predicted: Alive |
 |------------------|------------------|-----------------|
-| Actual: Dead     | 62 (7.70%)        | 61 (7.58%)     |
-| Actual: Alive    | 15 (1.86%)        | 667 (82.86%)   |
+| Actual: Dead     | 56 (6.96%)        | 67 (8.32%)     |
+| Actual: Alive    |  7 (0.87%)        | 675 (83.85%)   |
 
-- **Recall**: 97.9 percent  
-- **Precision**: 91.6 percent
-- **True Positive Rate**: 82.86 percent (667/805)
-- **False Negative Rate**: 1.86 percent (15/805)
-- **Precision-Recall AUC**: 96.97 percent
+- **Recall**: 99.0 percent  
+- **Precision**: 91.0 percent
+- **True Positive Rate**: 83.85 percent (675/805)
+- **False Negative Rate**: 0.87 percent (7/805)
+- **Precision-Recall AUC**: 96.67 percent
   
-
 ---
 
-## Tools and Libraries
+## Major Tools and Libraries
 
 - Python: pandas, numpy, scikit-learn, matplotlib, seaborn
 - Modeling: XGBoost, HistGradientBoosting, BaggingClassifier, MLPClassifier
 - Deep Learning: Keras, TensorFlow
-- Interpretation: SHAP
 
 ---
 
 ## Conclusion
 
-This project demonstrates the effective application of machine learning and deep learning to clinical survival prediction. The final model, HistGradient Boosting, showed a 97.9 percent recall with low false negative rates (1.86 percent), making it well-suited for clinical use where high sensitivity is essential. This model could assist clinicians in early intervention strategies with prioritizing the resources.
+This project demonstrates the effective application of machine learning and deep learning to clinical survival prediction. The final model, HistGradient Boosting, showed almost perfect score of 99.0 percent recall with low false negative rates (0.87 percent), making it well-suited for clinical use where high sensitivity is essential. This model could assist clinicians in early intervention strategies with prioritizing the resources.
