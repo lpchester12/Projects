@@ -8,6 +8,7 @@ csv_to_json <- converting cleaned csv file into json file.
 
 embedding_model <- creating embedding model for system utilization
 * Running this notebook will create a folder that has embedding model in your system (Colab environment).
+* * Github keeps saying that it is a invalid notebook, please check this notebook after download.
 
 ---
 
