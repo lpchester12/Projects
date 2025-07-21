@@ -6,6 +6,7 @@ A comprehensive machine learning project for predicting global life expectancy u
 
 ## Dataset
 - **Source**: World Health Organization (WHO) Global Health Observatory (from Kaggle)
+- **URL**: https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data
 - **Coverage**: 2000-2015 data from 193 countries
 - **Features**: 22 variables including health indicators, economic factors, immunization coverage, and social determinants
 - **Target**: Life expectancy in years
