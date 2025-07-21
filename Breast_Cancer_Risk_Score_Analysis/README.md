@@ -1,4 +1,4 @@
-# Breast Cancer Survival Risk Socre Prediction (SEER Dataset)
+# Breast Cancer Survival Risk Socre Prediction
 
 ![Breast Cancer Header](https://www.sysmex.co.uk/fileadmin/_processed_/a/9/csm_LifeScience_StageImage_BreastCancer_1500x600-01_2498abd1e0.jpg)
 
@@ -6,6 +6,7 @@ A machine learning project for predicting breast cancer survival outcomes using 
 
 ## Dataset
 - **Source**: SEER Program (Surveillance, Epidemiology, and End Results) - National Cancer Institute
+- **URL**: https://ieee-dataport.org/open-access/seer-breast-cancer-data
 - **Patients**: 4,024 female patients diagnosed with infiltrating duct and lobular carcinoma (2006-2010)
 - **Features**: 16 variables including tumor characteristics, staging, demographics, and survival data
 
