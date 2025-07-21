@@ -1,4 +1,4 @@
-# Life Expectancy Regression Analysus
+# Life Expectancy Regression Analysis
 
 ![Life Expectancy Header](https://c02.purpledshub.com/uploads/sites/41/2023/11/countries-in-the-world.jpg?w=1200)
 
