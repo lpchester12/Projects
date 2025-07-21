@@ -94,10 +94,8 @@ chroma, gradio, gramformer, torch
 - API-based services for reliable performance
 
 ### Target Users
-- Patients seeking medicine information
-- Healthcare students and professionals
-- Caregivers managing medications
-- General public for health education
+- Mainly for patients seeking medicine information
+- Healthcare professionals & students
 
 ---
 *Note: This model is for research purposes. Clinical decisions should always involve qualified healthcare professionals.*
