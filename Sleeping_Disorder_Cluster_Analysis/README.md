@@ -5,10 +5,11 @@
 An unsupervised machine learning project analyzing patterns in sleep apnea and insomnia patients using clustering techniques to identify distinct behavioral and physiological profiles for personalized treatment strategies.
 
 ## Dataset
+- **Source**: Sleep Health and Lifestyle Dataset (Kaggle)
+- **URL**: https://www.kaggle.com/datasets/uom190346a/sleep-health-and-lifestyle-dataset
 - **Patients**: 155 individuals with confirmed sleep disorders
 - **Conditions**: Sleep Apnea (50.3%) and Insomnia (49.7%)
 - **Features**: 13 variables including demographics, sleep metrics, lifestyle factors, and health indicators
-- **Source**: Sleep Health and Lifestyle Dataset
 
 ## Key Variables
 - **Demographics**: Age, Gender, Occupation, BMI Category
