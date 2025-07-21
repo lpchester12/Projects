@@ -98,12 +98,6 @@ matplotlib, seaborn, plotly
 4. Generate predictions with confidence intervals
 5. Interpret results using SHAP values
 
-## Applications
-- **Public Health Planning**: Resource allocation and intervention prioritization
-- **Policy Making**: Evidence-based health policy development
-- **International Development**: Aid distribution and program effectiveness
-- **Healthcare Research**: Understanding global health determinants
-
 ## Conclusion
 This analysis successfully identifies the most critical factors influencing global life expectancy, providing actionable insights for improving public health outcomes. The high model accuracy (96.76% R²) demonstrates strong predictive capability for policy simulation and healthcare planning.
 
