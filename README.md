@@ -1,3 +1,3 @@
 # Projects
 
-This is my project folder!
+This is my project folder.
