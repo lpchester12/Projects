@@ -48,11 +48,11 @@ A machine learning project for predicting breast cancer survival outcomes using 
 5. **N Stage** - Nodal staging
 
 ## Clinical Application
-The model provides a **0-100 risk score** that can guide:
+The model provides risk scores that can guide:
 - Treatment intensity decisions
-- Resource allocation
+- Personalize treatment
+- Better resource allocation
 - Patient monitoring frequency
-- Clinical intervention timing
 
 ## Dependencies
 ```python
