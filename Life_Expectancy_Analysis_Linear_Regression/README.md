@@ -37,22 +37,22 @@ A comprehensive machine learning project for predicting global life expectancy u
 - **Tree-Based**: Random Forest, Gradient Boosting, XGBoost
 - **Advanced Boosting**: LightGBM, CatBoost, HistGradientBoosting
 - **Neural Networks**: Multi-layer Perceptron (MLP)
-- **Ensemble**: Stacking Regressor with multiple base learners
+- **Ensemble**: Stacking Regressor with multiple base learners (RF / KNN / Gradient + Ridge)
 
 ## Results
 
 ### Best Model: LightGBM Regressor
-- **Test R²**: 96.76%
-- **Test RMSE**: 1.24 years
-- **Test MAE**: 0.89 years
-- **Test MAPE**: 1.54%
+- **Test R²**: 96.42%
+- **Test RMSE**: 1.76 years
+- **Test MAE**: 1.12 years
+- **Test MAPE**: 1.67
 
 ### Key Findings (SHAP Analysis)
 1. **HIV/AIDS prevalence** - Strongest negative predictor
 2. **Income composition** - Most influential positive factor
 3. **Adult mortality** - Major negative impact
-4. **Schooling** - Strong positive correlation
-5. **Under-five deaths** - Significant negative predictor
+4. **Under-five deaths** - Significant negative predictor
+5. **Schooling** - Strong positive correlation
 
 ### Statistical Model Insights
 Linear regression revealed statistically significant relationships:
@@ -80,26 +80,14 @@ Linear regression revealed statistically significant relationships:
 - **Income inequality** reduction initiatives
 - **Healthcare infrastructure** development
 
-### Country-Specific Strategies
-- **Developed countries**: Focus on lifestyle factors and healthcare quality
-- **Developing countries**: Prioritize basic healthcare, education, and economic development
-
 ## Dependencies
 ```python
 pandas, numpy, scikit-learn, statsmodels, scipy
 lightgbm, xgboost, catboost, shap
 matplotlib, seaborn, plotly
 ```
-
-## Usage
-1. Load and preprocess WHO health data
-2. Apply statistical analysis and visualization
-3. Train ensemble of regression models
-4. Generate predictions with confidence intervals
-5. Interpret results using SHAP values
-
 ## Conclusion
 This analysis successfully identifies the most critical factors influencing global life expectancy, providing actionable insights for improving public health outcomes. The high model accuracy (96.76% R²) demonstrates strong predictive capability for policy simulation and healthcare planning.
 
 ---
-*Note: This model is for research and policy guidance. Health decisions should involve qualified public health professionals and consider local context.*
+*Note: This model is for research purposes. Clinical decisions should always involve qualified healthcare professionals.*
