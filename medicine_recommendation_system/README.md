@@ -18,7 +18,6 @@ The system employs four specialized AI agents working in sequence:
 1. **Grammar Corrector Agent**
    - Fixes spelling and grammar errors in user input
    - Uses Gramformer model for natural language correction
-   - Ensures clear communication before processing
 
 2. **Medicine Finder Agent**
    - Retrieves relevant medicines from vector database
@@ -71,6 +70,7 @@ chroma, gradio, gramformer, torch
 ## Usage
 
 ### Basic Query Examples
+* Must be very simple (one word is recommended)
 ```python
 # Simple symptom
 "fever"
@@ -79,7 +79,7 @@ chroma, gradio, gramformer, torch
 "diabetes"
 
 # Simple medication
-"pain killer
+"pain killer"
 ```
 ## Architecture Benefits
 
