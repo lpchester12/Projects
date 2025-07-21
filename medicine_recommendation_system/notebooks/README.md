@@ -14,3 +14,7 @@ embedding_model <- creating embedding model for system utilization
 
 medicine_info_recommendation <- notebook where system runs
 * Github keeps saying that it is a invalid notebook, please check this notebook after download.
+
+---
+
+medicine_info_recommendation.py <- py file for the system notebook.
