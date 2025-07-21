@@ -9,9 +9,9 @@ Patients often struggle to find reliable medicine information for their symptoms
 A sophisticated RAG-based system that provides accurate, comprehensive medicine information from a curated dataset of 11,000+ medications, with multi-agent AI architecture ensuring quality and accuracy.
 
 ## Dataset
-- **Medicine Database**: 11,000+ medications with comprehensive information
+- **Medicine Database**: 11,000+ medications with comprehensive information (Kaggle)
+- **URL**: https://www.kaggle.com/datasets/singhnavjot2062001/11000-medicine-details
 - **Features**: Medicine name, composition, uses, side effects, manufacturer, reviews, images
-- **Format**: Structured JSON with semantic search capabilities
 
 ## System Architecture
 
@@ -62,25 +62,6 @@ The system employs four specialized AI agents working in sequence:
 - Natural language understanding for medical terms
 - Context-aware symptom interpretation
 
-### Comprehensive Medicine Information
-- **Medicine Details**: Name, composition, manufacturer
-- **Usage Information**: Indications and applications
-- **Safety Data**: Side effects and precautions
-- **User Reviews**: Excellent/average/poor review percentages
-- **Visual Reference**: Medicine images for identification
-
-### Quality Assurance
-- Multi-layer validation process
-- Hallucination detection and correction
-- Fact-checking against curated database
-- Fallback to authoritative medical sources
-
-### User Experience
-- **Gradio Interface**: Clean, intuitive web interface
-- **Real-time Processing**: Fast response times
-- **Contextual Conversations**: Memory-enabled interactions
-- **Accessibility**: Simple symptom-based queries
-
 ## Technical Stack
 
 ### Core Technologies
@@ -108,29 +89,6 @@ chroma, gradio, gramformer, torch
 # Pain relief
 "back pain relief"
 ```
-
-### System Response Format
-Each recommendation includes:
-- **Medicine Name** and manufacturer
-- **Primary Uses** for the condition
-- **Active Composition** details
-- **Side Effects** and precautions
-- **User Review** statistics
-- **Safety Information**
-
-## Safety & Disclaimers
-
-### Important Limitations
-- **Not a substitute** for professional medical advice
-- **Educational purposes** only
-- **Consult healthcare providers** before medication decisions
-- **Emergency situations** require immediate medical attention
-
-### Data Quality
-- Curated from reliable pharmaceutical sources
-- Regular validation against medical standards
-- Continuous quality monitoring and updates
-
 ## Architecture Benefits
 
 ### Accuracy & Reliability
@@ -138,23 +96,10 @@ Each recommendation includes:
 - Source-grounded responses avoid hallucinations
 - Fallback systems ensure comprehensive coverage
 
-### User-Centric Design
-- Natural language interface for non-technical users
-- Grammar correction handles input variations
-- Contextual memory for personalized experience
-
 ### Scalability
 - Vector database enables fast similarity search
 - Modular agent architecture for easy updates
 - API-based services for reliable performance
-
-## Applications
-
-### Primary Use Cases
-- **Patient Education**: Understanding prescribed medications
-- **Symptom Management**: Finding appropriate over-the-counter options
-- **Medicine Information**: Comprehensive drug details
-- **Healthcare Support**: Preliminary medicine research
 
 ### Target Users
 - Patients seeking medicine information
@@ -162,11 +107,5 @@ Each recommendation includes:
 - Caregivers managing medications
 - General public for health education
 
-## Future Enhancements
-- Integration with pharmacy databases
-- Multi-language support
-- Personalized recommendation algorithms
-- Integration with electronic health records
-
 ---
-*⚠️ **Medical Disclaimer**: This system provides educational information only. Always consult qualified healthcare professionals for medical advice, diagnosis, or treatment decisions.*
+* **Medical Disclaimer**: This system provides educational information only.
