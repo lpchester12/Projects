@@ -1,4 +1,4 @@
-# Sleep Disorder Cluster Analysis
+# Sleeping Disorder Cluster Analysis
 
 ![Sleeping Disorder Header](https://reverehealth.com/_next/image/?url=https%3A%2F%2Frevere-health.hqdemo.app%2Fwp-content%2Fuploads%2FiStock_41704022_LARGE.jpg&w=2048&q=75)
 
