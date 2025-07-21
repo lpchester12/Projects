@@ -5,9 +5,6 @@ An AI-powered medicine recommendation system that helps users find appropriate m
 ## Problem Statement
 Patients often struggle to find reliable medicine information for their symptoms, leading to confusion and inappropriate self-medication. Traditional internet searches return unreliable results, while medical databases are too technical for general users.
 
-## Solution
-A sophisticated RAG-based system that provides accurate, comprehensive medicine information from a curated dataset of 11,000+ medications, with multi-agent AI architecture ensuring quality and accuracy.
-
 ## Dataset
 - **Medicine Database**: 11,000+ medications with comprehensive information (Kaggle)
 - **URL**: https://www.kaggle.com/datasets/singhnavjot2062001/11000-medicine-details
@@ -50,11 +47,6 @@ The system employs four specialized AI agents working in sequence:
 - **Grammar Correction**: Gramformer for input preprocessing
 - **Embeddings**: HuggingFace sentence transformers
 
-#### Memory & Context
-- **Conversation Buffer**: Maintains chat history
-- **Context Awareness**: Personalized recommendations
-- **State Management**: Seamless user experience
-
 ## Key Features
 
 ### Intelligent Input Processing
@@ -85,9 +77,6 @@ chroma, gradio, gramformer, torch
 
 # Medical condition
 "diabetes management"
-
-# Pain relief
-"back pain relief"
 ```
 ## Architecture Benefits
 
@@ -108,4 +97,4 @@ chroma, gradio, gramformer, torch
 - General public for health education
 
 ---
-* **Medical Disclaimer**: This system provides educational information only.
+*Note: This model is for research purposes. Clinical decisions should always involve qualified healthcare professionals.*
