@@ -61,13 +61,16 @@ Linear regression revealed statistically significant relationships:
 - **Developing countries** showed consistently lower life expectancy (-1.19%)
 
 ## Model Performance Comparison
-| Model | Test R² | Test RMSE | Test MAE | Test MAPE |
-|-------|---------|-----------|----------|-----------|
-| LightGBM | 0.9676 | 1.24 | 0.89 | 1.54% |
-| Stacking | 0.9671 | 1.25 | 0.90 | 1.56% |
-| HistGradientBoosting | 0.9658 | 1.27 | 0.91 | 1.59% |
-| CatBoost | 0.9627 | 1.33 | 0.95 | 1.67% |
-| MLP | 0.9580 | 1.41 | 1.02 | 1.81% |
+### Model Performance Comparison (Life Expectancy Prediction)
+
+| Model                     | R-Squared | Adj R-Squared |   RMSE   |   MAE    |  MAPE   |
+|--------------------------|-----------|----------------|----------|----------|---------|
+| HistGradientBoosting     | 0.95545   | 0.95388        | 1.96241  | 1.26477  | 1.91175 |
+| CatBoost Regressor       | 0.95851   | 0.95705        | 1.89381  | 1.24544  | 1.86052 |
+| LightGBM Regressor       | 0.96423   | 0.96297        | 1.75845  |1.11792   | 1.67555 |
+| MLP Regressor            | 0.94123   | 0.93916        | 2.25399  | 1.58401  | 2.36880 |
+| Stacking Regressor       | 0.95900   | 0.95755        | 1.88272  | 1.22631  | 1.84376 |
+
 
 ## Key Insights for Policy
 
