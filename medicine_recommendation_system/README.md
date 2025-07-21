@@ -73,10 +73,13 @@ chroma, gradio, gramformer, torch
 ### Basic Query Examples
 ```python
 # Simple symptom
-"fever and headache"
+"fever"
 
 # Medical condition
-"diabetes management"
+"diabetes"
+
+# Simple medication
+"pain killer
 ```
 ## Architecture Benefits
 
