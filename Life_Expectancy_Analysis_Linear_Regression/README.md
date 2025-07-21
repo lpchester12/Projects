@@ -1,86 +1,107 @@
-# Life Expectancy Prediction using Linear Regression
-
-This project investigates the factors influencing life expectancy using a dataset from kaggle provided by the World Health Organization (WHO). 
-The analysis focuses on understanding various factors that infliences life expectancy across 193 countries between 2000 ~ 2015.
+# Life Expectancy Regression Analysus
 
 ![Life Expectancy Header](https://c02.purpledshub.com/uploads/sites/41/2023/11/countries-in-the-world.jpg?w=1200)
 
+A comprehensive machine learning project for predicting global life expectancy using World Health Organization data, with a focus on identifying key factors influencing public health outcomes across developed and developing countries.
+
+## Dataset
+- **Source**: World Health Organization (WHO) Global Health Observatory (from Kaggle)
+- **Coverage**: 2000-2015 data from 193 countries
+- **Features**: 22 variables including health indicators, economic factors, immunization coverage, and social determinants
+- **Target**: Life expectancy in years
+
+## Key Variables
+- **Health Indicators**: Adult mortality, infant deaths, HIV/AIDS prevalence
+- **Economic Factors**: GDP, health expenditure percentage
+- **Immunization**: Hepatitis B, Polio, Diphtheria coverage
+- **Social Determinants**: Schooling, income composition, BMI
+- **Nutrition**: Thinness prevalence in children/adolescents
+
+## Methodology
+
+### Data Preprocessing
+- Missing value imputation using median/mean strategies
+- Outlier analysis with Cook's Distance for influential point removal
+- Log transformation for highly skewed features
+- Feature scaling for neural network models
+
+### Statistical Analysis
+- Comprehensive EDA with univariate and bivariate analysis
+- Statistical hypothesis testing (Kruskal-Wallis test)
+- t-SNE visualization for country status clustering
+- Linear regression with assumption validation (VIF, normality, homoscedasticity)
+
+### Model Development
+- **Linear Models**: OLS Regression, Ridge, Lasso, ElasticNet
+- **Tree-Based**: Random Forest, Gradient Boosting, XGBoost
+- **Advanced Boosting**: LightGBM, CatBoost, HistGradientBoosting
+- **Neural Networks**: Multi-layer Perceptron (MLP)
+- **Ensemble**: Stacking Regressor with multiple base learners
+
+## Results
+
+### Best Model: LightGBM Regressor
+- **Test R²**: 96.76%
+- **Test RMSE**: 1.24 years
+- **Test MAE**: 0.89 years
+- **Test MAPE**: 1.54%
+
+### Key Findings (SHAP Analysis)
+1. **HIV/AIDS prevalence** - Strongest negative predictor
+2. **Income composition** - Most influential positive factor
+3. **Adult mortality** - Major negative impact
+4. **Schooling** - Strong positive correlation
+5. **Under-five deaths** - Significant negative predictor
+
+### Statistical Model Insights
+Linear regression revealed statistically significant relationships:
+- **Negative factors**: Adult mortality (-1.39%), HIV/AIDS (-8.80%), infant deaths (-1.0%)
+- **Positive factors**: Income composition (+14.70%), schooling (+0.80%), GDP (+0.27%)
+- **Developing countries** showed consistently lower life expectancy (-1.19%)
+
+## Model Performance Comparison
+| Model | Test R² | Test RMSE | Test MAE | Test MAPE |
+|-------|---------|-----------|----------|-----------|
+| LightGBM | 0.9676 | 1.24 | 0.89 | 1.54% |
+| Stacking | 0.9671 | 1.25 | 0.90 | 1.56% |
+| HistGradientBoosting | 0.9658 | 1.27 | 0.91 | 1.59% |
+| CatBoost | 0.9627 | 1.33 | 0.95 | 1.67% |
+| MLP | 0.9580 | 1.41 | 1.02 | 1.81% |
+
+## Key Insights for Policy
+
+### High-Impact Interventions
+- **HIV/AIDS prevention and treatment** programs
+- **Education system** improvements (schooling years)
+- **Income inequality** reduction initiatives
+- **Healthcare infrastructure** development
+
+### Country-Specific Strategies
+- **Developed countries**: Focus on lifestyle factors and healthcare quality
+- **Developing countries**: Prioritize basic healthcare, education, and economic development
+
+## Dependencies
+```python
+pandas, numpy, scikit-learn, statsmodels, scipy
+lightgbm, xgboost, catboost, shap
+matplotlib, seaborn, plotly
+```
+
+## Usage
+1. Load and preprocess WHO health data
+2. Apply statistical analysis and visualization
+3. Train ensemble of regression models
+4. Generate predictions with confidence intervals
+5. Interpret results using SHAP values
+
+## Applications
+- **Public Health Planning**: Resource allocation and intervention prioritization
+- **Policy Making**: Evidence-based health policy development
+- **International Development**: Aid distribution and program effectiveness
+- **Healthcare Research**: Understanding global health determinants
+
+## Conclusion
+This analysis successfully identifies the most critical factors influencing global life expectancy, providing actionable insights for improving public health outcomes. The high model accuracy (96.76% R²) demonstrates strong predictive capability for policy simulation and healthcare planning.
+
 ---
-
-## Problem Statement
-
-To build an interpretable linear regression model that identifies the most significant predictors of life expectancy and provides insights that can help 
-guide public health and policy decisions, especially in developing countries.
-
----
-
-## Dataset Overview
-
-- **Source**: [Kaggle – Life Expectancy (WHO) Dataset](https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who)
-- **Observations**: 2,938 rows from 193 countries over multiple years (2000–2015)
-- **Target**: Life Expectancy
-- **Features**: The dataset contains 22 clinical, behavioral, and socioeconomic variables
-
----
-
-## Data Cleaning
-   - Imputed missing values using median (based on skewed distributions)
-   - Removed high-leverage outliers using Cook's distance
-
----
-
-## Exploratory Data Analysis (EDA)
-   - Univariate and bivariate analysis
-   - Distribution plots, correlation matrix, and scatterplots
-
----
-
-## Feature Engineering
-   - Log transformation of skewed numeric variables
-   - Dummy encoding of categorical variables
-
----
-
-## Model Building
-   - Multiple linear regression using statsmodels
-   - Feature elimination based on VIF and p-values
-   - Assumption testing (all satisfied):
-     - Linearity and independence (residuals vs. fitted)
-     - Multicollinearity (VIF)
-     - Normality (QQ plot, Shapiro-Wilk)
-     - Homoscedasticity (Goldfeld-Quandt test)
----
-
-## Model Evaluation
-   - Train-test split (70:30)
-   - Performance metrics: RMSE, MAE, R-squared, Adjusted R-squared, MAPE
-
----
-
-## Model Performance
-
-| Dataset       | R-squared | Adjusted R-squared | RMSE    | MAE     | MAPE    |
-|---------------|-----------|--------------------|---------|---------|---------|
-| Training Set  | 0.84964   | 0.84846            | 0.05128 | 0.03929 | 0.93005 |
-| Test Set      | 0.87241   | 0.87005            | 0.04759 | 0.03625 | 0.85934 |
-
-- Final model explains approximately 85% of the variance in life expectancy (R-squared = 0.85)
-
----
-
-## Tools and Libraries
-
-- Python (Pandas, NumPy)
-- Matplotlib, Seaborn
-- Statsmodels
-- Scikit-learn
-- Scipy
-
----
-
-## Conclusions & Insights
-
-- HIV/AIDS prevalence has the strongest negative impact on life expectancy.
-- Higher income composition, schooling, GDP, and vaccination rates are strongly associated with increased life expectancy.
-- Public health investments and educational attainment are criticalc for improving population health.
-- Improving these areas, especially in developing countries, can improve general public health.
+*Note: This model is for research and policy guidance. Health decisions should involve qualified public health professionals and consider local context.*
