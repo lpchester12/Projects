@@ -51,7 +51,7 @@ A machine learning project for predicting breast cancer survival outcomes using 
 ## Clinical Application
 The model provides risk scores that can guide:
 - Treatment intensity decisions
-- Personalize treatment
+- Personalized treatment
 - Better resource allocation
 - Patient monitoring frequency
 
@@ -60,12 +60,6 @@ The model provides risk scores that can guide:
 pandas, numpy, scikit-learn, catboost, xgboost, lightgbm
 imblearn, shap, matplotlib, seaborn, scipy, umap-learn
 ```
-
-## Usage
-1. Load and preprocess the SEER breast cancer dataset
-2. Apply feature engineering transformations
-3. Train the CatBoost + ENN pipeline
-4. Generate risk scores for new patients using `calculate_risk_score()`
 
 ## Conclusion
 This analysis successfully develops a clinically-relevant risk scoring system with 87.41% ROC-AUC performance, enabling healthcare providers to make data-driven decisions for breast cancer patient management.
